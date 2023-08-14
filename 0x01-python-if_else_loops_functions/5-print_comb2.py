@@ -8,4 +8,3 @@ while i <= 99:
     else:
         print("{:02d}".format(i))
     i += 1
-
