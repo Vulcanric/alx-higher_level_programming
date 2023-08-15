@@ -16,4 +16,4 @@ def uppercase(str):
         print("{}".format(chr(upper)), end='')
         i += 1
 
-    print()  # print newline after all done
+    print("{}".format('\n'), end='')  # print newline after all done
