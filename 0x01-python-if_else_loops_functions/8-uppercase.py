@@ -7,11 +7,13 @@ def uppercase(str):
         if ord(str[i]) >= 97 and ord(str[i]) <= 122:
             # Convert to uppercase ascii number
             upper = ord(str[i]) - 32  # 'a' - 32 = 'A' and so on ...
-            # Print the ascii upper letter from ascii number
-            print(chr(upper), end='')
 
-        # otherwise print the char as it is
+        # otherwise let the char remain the same
         else:
-            print(str[i], end='')
+            upper = ord(str[i])
+
+        # Print the ascii upper letter from ascii number
+        print(chr(upper), end='')
         i += 1
+
     print()  # print newline after all done
