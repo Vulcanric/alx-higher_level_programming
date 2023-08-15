@@ -23,9 +23,9 @@ def add_tuple(tuple_a=(), tuple_b=()):
         arg1_elem1 = tuple_a[0]
     if len_b >= 1:
         arg2_elem1 = tuple_b[0]
-    if len_a == 2:
+    if len_a >= 2:
         arg1_elem2 = tuple_a[1]
-    if len_b == 2:
+    if len_b >= 2:
         arg2_elem2 = tuple_b[1]
 
     result_tuple = ((arg1_elem1 + arg2_elem1), (arg1_elem2 + arg2_elem2))
