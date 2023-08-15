@@ -13,7 +13,7 @@ def uppercase(str):
             upper = ord(str[i])
 
         # Print the ascii upper letter from ascii number
-        print(chr(upper), end='')
+        print("{}".format(chr(upper)), end='')
         i += 1
 
     print()  # print newline after all done
