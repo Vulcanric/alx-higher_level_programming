@@ -3,8 +3,10 @@
 def add_tuple(tuple_a=(), tuple_b=()):
     """Function that adds 2 tuples
     Returns a tuple with 2 integers:
-        The first element is the addition of the first element of each argument
-        The second elment is the addition of the second element of each argument
+        The first element is the addition of the first element of each
+        argument
+        The second elment is the addition of the second element of each
+        argument
     Assumes that the tuple contains only integers
     """
     result_tuple = ()
