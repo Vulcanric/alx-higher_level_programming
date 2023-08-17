@@ -6,7 +6,7 @@ def remove_char_at(str, n):
     """
     str_cpy = ""
 
-    i = 0;
+    i = 0
     while i < len(str):
         if i != n:
             str_cpy += str[i]
