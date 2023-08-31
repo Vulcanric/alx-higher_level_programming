@@ -31,13 +31,17 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = size
 
-        if isinstance(position[0], int) is False:
+        try:
+            if position[0] < 0 or position[1] < 0:
+                raise TypeError("position must be a tuple of 2 positive integers")
+            if isinstance(position[0], int) is False:
+                raise TypeError("position must be a tuple of 2 positive integers")
+            if isinstance(position[1], int) is False:
+                raise TypeError("position must be a tuple of 2 positive integers")
+            self.__position = position
+        except Exception:
             raise TypeError("position must be a tuple of 2 positive integers")
-        if isinstance(position[1], int) is False:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if position[0] < 0 or position[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = position
+
 
     @property
     def size(self):
@@ -75,13 +79,16 @@ class Square:
         :param value: tuple containing co-ordinate of square
         :return: nothing
         """
-        if isinstance(value[0], int) is False:
+        try:
+            if value[0] < 0 or value[1] < 0:
+                raise TypeError("position must be a tuple of 2 positive integers")
+            if isinstance(value[0], int) is False:
+                raise TypeError("position must be a tuple of 2 positive integers")
+            if isinstance(value[1], int) is False:
+                raise TypeError("position must be a tuple of 2 positive integers")
+            self.__position = value
+        except Exception:
             raise TypeError("position must be a tuple of 2 positive integers")
-        if isinstance(value[1], int) is False:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if value[0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
 
     def area(self):
         """Computes the area of square

@@ -11,7 +11,7 @@ my_square.my_print()
 
 print("--")
 
-my_square.size = 0
+my_square.size = -1
 my_square.my_print()
 
 print("--")

@@ -8,4 +8,4 @@ print(new_tuple)
 
 print(add_tuple(tuple_a, (1, )))
 print(add_tuple(tuple_a, ()))
-
+print(add_tuple(tuple_b, (1, 2, 3)))
