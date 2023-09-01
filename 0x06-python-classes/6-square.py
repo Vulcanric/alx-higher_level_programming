@@ -42,7 +42,6 @@ class Square:
         except Exception:
             raise TypeError("position must be a tuple of 2 positive integers")
 
-
     @property
     def size(self):
         """The getter
