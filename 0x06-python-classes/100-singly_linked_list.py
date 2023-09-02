@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defined Singly linked list and Node classes"""
 
+
 class Node:
     """Class Node:
         defines a node structure of a singly linked list
@@ -64,6 +65,7 @@ class Node:
         if value and isinstance(value, Node) is False:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
+
 
 class SinglyLinkedList:
     """Clas SinglyLinkedList:
