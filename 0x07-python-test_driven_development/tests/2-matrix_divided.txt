@@ -1,0 +1,110 @@
++============================================================================+
+| Tests the ``matrix_divided()`` function from the 2-matrix_divided.py module|
++============================================================================+
+
+    =====================
+    |    Application    |
+    =====================
+This module ``2-matrix_divided`` defines one function: ``matrix_divided()``
+
+The function returns a new matrix containing factors of list elements & divisorrounded to 2d.p (decimal places)
+
+The function matrix_divided(matrix, div) takes two arguments:
+    @ a list of lists containing integers or floats
+    @ div - divisor of all numbers of elements in matrix(It divides all
+    elements in each rows)
+
+    +=================+
+    | Correct Output  |
+    +=================+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix = [
+... 	[1, 2, 3],
+... 	[4, 5, 6]
+... ]
+... 
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+
+>>> print(matrix_divided(matrix, 3))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+    +==================+
+    |    Wrong Uses    |
+    +==================+
++==============+
+| Non-integers |
++==============+
+>>> matrix = [
+... 	[1, '2', "3"],
+... 	["4", '5', 6],
+... 	[{'one': 1}, {'two': 2}, {'three': 3}]
+... ]
+... 
+>>> print(matrix_divided(matrix, 2))
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
++=================+
+| Non-list rows   |
++=================+
+>>> matrix = [
+... 	{'one': 1},
+... 	[2, 3],
+... 	(4, 5)
+... ]
+... 
+>>> print(matrix_divided(matrix, 2))
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
++======================+
+| Rows of unequal size |
++======================+
+>>> matrix = [
+... 	[1, 2, 3, 4],
+... 	[5, 6, 7],
+... 	[8, 9.0],
+... 	[10]
+... ]
+... 
+>>> print(matrix_divided(matrix, 2))
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
++===============+
+| Zero Division |
++===============+
+>>> matrix = [
+... 	[1, 2],
+... 	[3, 4]
+... ]
+... 
+>>> print(matrix_divided(matrix, 0))
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
++===============================+
+| divisor of non int/float type |
++===============================+
+>>> matrix = [
+... 	[1, 2],
+... 	[3, 5]
+... ]
+... 
+>>> print(matrix_divided(matrix, "str"))
+Traceback (most recent call last):
+TypeError: div must be a number
+
++============+
+| Type None  |
++============+
+>>> matrix = None
+>>> print(matrix_divided(matrix, 2))
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = [None]
+>>> print(matrix_divided(matrix, 2))
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
