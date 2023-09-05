@@ -17,7 +17,7 @@ class Rectangle:
     Public instance method perimeter():
         Returns the perimeter of Rectangle
     Public instance __str__() method that prints the rectangle
-	Returns shape of rectangle with '#' character
+    Returns shape of rectangle with '#' character
     """
 
     def __init__(self, width=0, height=0):
@@ -53,8 +53,7 @@ class Rectangle:
         :returns: object in form of string which can be used by
         the eval() function to make new instances/object
         """
-        return self.__class__.__name__ + "({}, {})".format(self.__width, \
-self.__height)
+        return self.__class__.__name__ + f"({self.__width}, {self.__height})"
 
     @property
     def height(self):
