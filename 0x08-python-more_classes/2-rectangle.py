@@ -78,7 +78,7 @@ class Rectangle:
 
     def perimeter(self):
         """Returns the sum of the total sides of the rectangle"""
-        l = self.__height
-        b = self.__width
-        perim = 2 * (l + b)
+        length = self.__height
+        breadth = self.__width
+        perim = 2 * (length + breadth)
         return perim
