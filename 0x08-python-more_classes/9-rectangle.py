@@ -125,8 +125,10 @@ class Rectangle:
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """Returns the the biggest rectangle based on area
-        :param rect_1 (Rectangle): First instance of class Rectangle to compare
-        :param rect_2 (Rectangle): Second instance of class Rectangle to compare
+        :param rect_1 (Rectangle): First instance of class Rectangle
+        to compare
+        :param rect_2 (Rectangle): Second instance of class Rectangle
+        to compare
         :returns: the bigger one
         """
         if not isinstance(rect_1, Rectangle):
