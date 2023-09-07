@@ -53,7 +53,7 @@ class Rectangle:
         """
         rect_rep = []
         for i in range(self.__height):
-            rect_rep.append(str(Rectangle.print_symbol) * self.__width)
+            rect_rep.append(str(self.print_symbol) * self.__width)
         str_rep = '\n'.join(rect_rep)
         return str_rep.rstrip()
 
