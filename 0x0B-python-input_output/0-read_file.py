@@ -12,5 +12,9 @@ def read_file(filename=""):
     :returns: nothing
     """
     with open(filename, "r", encoding='utf-8') as file:
-        content = file.read()
+        chars = file.read()
+        content = ""
+        while chars != '':
+            content += chars
+            chars = file.read()
         print(content.rstrip())
