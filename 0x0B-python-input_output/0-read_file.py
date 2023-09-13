@@ -17,4 +17,4 @@ def read_file(filename=""):
         while chars != '':
             content += chars
             chars = file.read()
-        print(content.rstrip())
+        print(content.rstrip(), end='')
