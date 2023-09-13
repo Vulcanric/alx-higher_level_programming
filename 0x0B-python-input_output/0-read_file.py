@@ -7,6 +7,10 @@
 
 def read_file(filename=""):
     """Reads the content of a file in encoding utf-8 and prints its
-    content to stdout"""
-    with open(filename, encoding='utf-8') as file:
-        print(file.read())
+    content to stdout
+    :param filename: file to read
+    :returns: nothing
+    """
+    with open(filename, "r", encoding='utf-8') as file:
+        content = file.read()
+        print(content.rstrip())
