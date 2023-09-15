@@ -41,11 +41,10 @@ integers/floats")
     # Handle zero division
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    
+
     # Handle type of divisor
     if type(div) not in [int, float]:
         raise TypeError("div must be a number")
-
     for rows in matrix:
         if type(rows) is not list:  # row might be a tuple, dict or string
             raise TypeError("matrix must be a matrix (list of lists) of \
