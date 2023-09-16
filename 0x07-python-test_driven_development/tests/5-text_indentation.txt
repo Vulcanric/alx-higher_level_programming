@@ -46,6 +46,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 <BLANKLINE>
  Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 
+>>> text_indentation("Holberton. School? How are you: John")
+Holberton.
+<BLANKLINE>
+ School?
+<BLANKLINE>
+ How are you:
+<BLANKLINE>
+ John
+
 	+================+
 	|   Wrong Cases  |
 	+================+
