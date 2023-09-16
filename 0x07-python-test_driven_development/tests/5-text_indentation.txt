@@ -46,14 +46,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 <BLANKLINE>
  Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 
->>> text_indentation("Holberton. School? How are you: John")
+>>> text_indentation("Holberton. School? How are you:	John") #doctest: +REPORT_NDIFF
 Holberton.
 <BLANKLINE>
  School?
 <BLANKLINE>
  How are you:
 <BLANKLINE>
- John
+   John
 
 	+================+
 	|   Wrong Cases  |
