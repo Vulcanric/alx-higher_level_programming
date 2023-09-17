@@ -11,11 +11,11 @@ class Base:
 
     It defines the constructor method used to instantiate it with the
     following parameters:
-        self: this is used to represents the object created
+        self: this is used to represent objects created from this class
         id: integer value (default: None) assigned to each object created
 
     It manages the id of all instances created from it or from its
-    sub-classes / derived-classes / child-classes
+    subclasses / derived-classes / child-classes
 
     It does this using a class attribute: *__nb_objects* which updates
     itself whenever an object is created
@@ -26,7 +26,8 @@ class Base:
 
     # The constructor
     def __init__(self, id=None):
-        if id != None:
+        ID = id
+        if ID is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
