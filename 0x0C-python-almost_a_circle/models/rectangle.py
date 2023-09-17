@@ -46,6 +46,11 @@ class Rectangle(Base):
         self.__y = y
         super().__init__(id)
 
+    def __str__(self):
+        """Returns string representation of rectangle object"""
+        return "[Rectangle] ({0}) {1}/{2} - \
+{3}/{4}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+
     # width getter
     @property
     def width(self):
@@ -100,5 +105,5 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """displays rectangular object with the character '#'"""
+        """displays 2D representation of a rectangle object"""
         [print('#' * self.__width) for i in range(self.__height)]
