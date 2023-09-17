@@ -112,9 +112,8 @@ class TestRectangleClass(unittest.TestCase):
             rectangle.display()
             # get the printed text
             printed_text2 = capture_object.getvalue()
-
             expected_output1 = "####\n####\n"
-            expected_output2 = "####\n####\n######\n######\n" #output1 included
+            expected_output2 = "####\n####\n######\n######\n"
             # Compare results
             self.assertMultiLineEqual(printed_text1, expected_output1)
             self.assertMultiLineEqual(printed_text2, expected_output2)

@@ -2,9 +2,9 @@
 """Test suites for class: 'Base'
 located in the module: 'models.base'
 """
-
 import unittest
 from models.base import Base
+
 
 class TestBaseClass(unittest.TestCase):
     def setUp(self):
