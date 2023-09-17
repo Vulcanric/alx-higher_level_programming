@@ -10,7 +10,7 @@ class TestRectangleClass(unittest.TestCase):
         rect1 = Rectangle(8, 4)
         self.assertEqual(rect1.width, 8)
         self.assertEqual(rect1.height, 4)
-        self.assertTrue(rect1.id == 4)
+        self.assertEqual(rect1.id, 7)
 
     def test_coordinate(self):
         rect2 = Rectangle(4, 4, x=2, y=3)
@@ -19,7 +19,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertTrue(rect2.id == 2)
 
     def test_setters(self):
-        rect3 = Rectangle(width=0, height=0, x=0, y=0, id=0)
+        rect3 = Rectangle(width=1, height=1, x=0, y=0, id=0)
         rect3.width = 10
         rect3.height = 6
         rect3.x = 3
@@ -54,3 +54,27 @@ class TestRectangleClass(unittest.TestCase):
 
         rect52 = rect1 = Rectangle(8, 4, id=52)
         self.assertEqual(rect52.id, 52)
+
+    def test_invalid_parameter_type(self):
+        with self.assertRaises(TypeError):
+            rect = Rectangle(10, "2")
+            self.assertWarns("height must be an integer")
+
+        r = Rectangle(10, 2)
+        with self.assertRaises(ValueError):
+            r.x = -10
+            self.assertWarns("x must be >= 0")
+
+        rect = Rectangle(10, 2)
+        with self.assertRaises(TypeError):
+            rect.y = {}
+            self.assertWarns("y must be an integer")
+
+        r = Rectangle(10, 2)
+        with self.assertRaises(ValueError):
+            r.width = -2
+            self.assertWarns("width must be > 0")
+
+    def test_no_parameter(self):
+        with self.assertRaises(TypeError):
+            rect = Rectangle()
