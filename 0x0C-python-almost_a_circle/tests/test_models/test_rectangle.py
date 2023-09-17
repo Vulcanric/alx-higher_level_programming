@@ -12,7 +12,7 @@ class TestRectangleClass(unittest.TestCase):
         rect1 = Rectangle(8, 4)
         self.assertEqual(rect1.width, 8)
         self.assertEqual(rect1.height, 4)
-        self.assertEqual(rect1.id, 10)
+        self.assertEqual(rect1.id, 11)
 
     def test_coordinate(self):
         rect2 = Rectangle(4, 4, x=2, y=3)
@@ -120,4 +120,24 @@ class TestRectangleClass(unittest.TestCase):
             self.assertMultiLineEqual(printed_text2, expected_output2)
         finally:
             # Reset stdout back to its original state
+            sys.stdout = original_stdout
+
+    def test_str(self):
+        r1 = Rectangle(4, 6, 2, 1, 12)
+
+        original_stdout = sys.stdout
+        capture_object = io.StringIO()
+        try:
+            sys.stdout = capture_object
+            print(r1)
+            printed_text1 = capture_object.getvalue()
+
+            r2 = Rectangle(5, 5, 1)
+            print(r2)
+            printed_text2 = capture_object.getvalue()
+
+            self.assertEqual(printed_text1, "[Rectangle] (12) 2/1 - 4/6\n")
+            self.assertMultiLineEqual(printed_text2, "[Rectangle] (12) 2/1 - \
+4/6\n[Rectangle] (10) 1/0 - 5/5\n")
+        finally:
             sys.stdout = original_stdout
