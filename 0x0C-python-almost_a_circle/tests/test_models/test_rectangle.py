@@ -10,13 +10,13 @@ class TestRectangleClass(unittest.TestCase):
         rect1 = Rectangle(8, 4)
         self.assertEqual(rect1.width, 8)
         self.assertEqual(rect1.height, 4)
-        self.assertEqual(rect1.id, 7)
+        self.assertEqual(rect1.id, 9)
 
     def test_coordinate(self):
         rect2 = Rectangle(4, 4, x=2, y=3)
         self.assertEqual(rect2.x, 2)
         self.assertEqual(rect2.y, 3)
-        self.assertTrue(rect2.id == 2)
+        self.assertTrue(rect2.id == 4)
 
     def test_setters(self):
         rect3 = Rectangle(width=1, height=1, x=0, y=0, id=0)
@@ -78,3 +78,13 @@ class TestRectangleClass(unittest.TestCase):
     def test_no_parameter(self):
         with self.assertRaises(TypeError):
             rect = Rectangle()
+
+    def test_area_method(self):
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+
+        r2 = Rectangle(2, 10)
+        self.assertEqual(r2.area(), 20)
+
+        r3 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r3.area(), 56)
