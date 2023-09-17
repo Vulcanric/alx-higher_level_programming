@@ -37,6 +37,7 @@ class Rectangle(Base):
 
     # The Constructor
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Instantiate objects made from this class"""
         # check for invalid parameter types
         Rectangle.validate_parameters(width, height, x, y)
         self.__width = width
@@ -48,40 +49,52 @@ class Rectangle(Base):
     # width getter
     @property
     def width(self):
+        """returns the value of width to caller"""
         return self.__width
 
     # height getter
     @property
     def height(self):
+        """returns the value of height to caller"""
         return self.__height
 
     # x getter
     @property
     def x(self):
+        """returns the value of x to caller"""
         return self.__x
 
     # y getter
     @property
     def y(self):
+        """returns the value of y to caller"""
         return self.__y
 
     # Setters
     @width.setter
     def width(self, width):
+        """Sets the value of private attribute width"""
         Rectangle.validate_parameters(w=width)
         self.__width = width
 
     @height.setter
     def height(self, height):
+        """Sets the value of private attribute height"""
         Rectangle.validate_parameters(h=height)
         self.__height = height
 
     @x.setter
     def x(self, x_value):
+        """Sets the value of private attribute x"""
         Rectangle.validate_parameters(x=x_value)
         self.__x = x_value
 
     @y.setter
     def y(self, y_value):
+        """Sets the value of private attribute y"""
         Rectangle.validate_parameters(y=y_value)
         self.__y = y_value
+
+    def area(self):
+        """Returns the area of the rectangular object"""
+        return self.__width * self.__height
