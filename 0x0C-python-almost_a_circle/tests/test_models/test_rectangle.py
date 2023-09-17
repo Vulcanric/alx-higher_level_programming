@@ -2,6 +2,8 @@
 """Test suite for class 'Rectangle' located in the 'models.rectangle' module"""
 import unittest
 from models.rectangle import Rectangle
+import io
+import sys
 
 
 class TestRectangleClass(unittest.TestCase):
@@ -10,7 +12,7 @@ class TestRectangleClass(unittest.TestCase):
         rect1 = Rectangle(8, 4)
         self.assertEqual(rect1.width, 8)
         self.assertEqual(rect1.height, 4)
-        self.assertEqual(rect1.id, 9)
+        self.assertEqual(rect1.id, 10)
 
     def test_coordinate(self):
         rect2 = Rectangle(4, 4, x=2, y=3)
@@ -88,3 +90,34 @@ class TestRectangleClass(unittest.TestCase):
 
         r3 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r3.area(), 56)
+
+    def test_display(self):
+        rectangle = Rectangle(4, 2)
+
+        # Store the original stdout for later resetting
+        original_stdout = sys.stdout
+        # create an IO object to capture printed rectangular object
+        capture_object = io.StringIO()
+        try:
+            # Redirect stdout to the io object to capture printed text
+            sys.stdout = capture_object
+
+            # call the function to print text
+            rectangle.display()
+            # get the printed text
+            printed_text1 = capture_object.getvalue()
+
+            # reset width value and call again
+            rectangle.width = 6
+            rectangle.display()
+            # get the printed text
+            printed_text2 = capture_object.getvalue()
+
+            expected_output1 = "####\n####\n"
+            expected_output2 = "####\n####\n######\n######\n" #output1 included
+            # Compare results
+            self.assertMultiLineEqual(printed_text1, expected_output1)
+            self.assertMultiLineEqual(printed_text2, expected_output2)
+        finally:
+            # Reset stdout back to its original state
+            sys.stdout = original_stdout
