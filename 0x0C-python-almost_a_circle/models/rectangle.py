@@ -102,8 +102,41 @@ class Rectangle(Base):
 
     def area(self):
         """Returns the area of the rectangular object"""
-        return self.__width * self.__height
+        return self.width * self.height
 
     def display(self):
-        """displays 2D representation of a rectangle object"""
-        [print('#' * self.__width) for i in range(self.__height)]
+        """displays 2D representation of a rectangular object"""
+        print("\n" * self.y, end="")
+        [print(' ' * self.x + '#' * self.width) \
+for i in range(self.height)]
+
+    def update(self, *args, **kwargs):
+        """Updates instance private parameters using a variable
+        number of arguments passed to it.
+        """
+        # If positional arguments passed is not empty, skip kwargs
+        if args != ():
+            # represents id, width, height, x, and y default values
+            attributes = [self.id, self.width, self.height, self.x, self.y]
+
+            # copy values of arguments passed, into attribute list
+            for i in range(len(args)):
+                attributes[i] = args[i]
+            # get updated attribute-values updated
+            self.id = attributes[0]
+            self.width = attributes[1]
+            self.height = attributes[2]
+            self.x = attributes[3]
+            self.y = attributes[4]
+        else:  # otherwise use keyword argments: kwargs
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
