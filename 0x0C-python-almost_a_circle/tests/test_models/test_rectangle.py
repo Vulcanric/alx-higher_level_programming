@@ -105,21 +105,18 @@ class TestRectangleClass(unittest.TestCase):
 
             # call the function to print text
             rectangle.display()
-            # get the printed text
-            printed_text1 = capture_object.getvalue()
 
-            # reset width value and call again
+            # reset attributes value and call again
             rectangle.width = 6
             rectangle.x = 2
             rectangle.y = 2
             rectangle.display()
+
             # get the printed text
-            printed_text2 = capture_object.getvalue()
-            expected_output1 = "####\n####\n"
-            expected_output2 = "####\n####\n\n\n  ######\n  ######\n"
+            printed_text = capture_object.getvalue()
+            expected_output = "####\n####\n\n\n  ######\n  ######\n"
             # Compare results
-            self.assertMultiLineEqual(printed_text1, expected_output1)
-            self.assertMultiLineEqual(printed_text2, expected_output2)
+            self.assertMultiLineEqual(printed_text, expected_output)
         finally:
             # Reset stdout back to its original state
             sys.stdout = original_stdout
@@ -132,21 +129,18 @@ class TestRectangleClass(unittest.TestCase):
         try:
             sys.stdout = capture_object
             print(r1)
-            printed_text1 = capture_object.getvalue()
 
             r2 = Rectangle(5, 5, 1)
             print(r2)
-            printed_text2 = capture_object.getvalue()
 
             r2.update(89, 2, 3, 4, 5)
             print(r2)
-            printed_text3 = capture_object.getvalue()
 
-            self.assertEqual(printed_text1, "[Rectangle] (12) 2/1 - 4/6\n")
-            self.assertMultiLineEqual(printed_text2, "[Rectangle] (12) 2/1 - \
-4/6\n[Rectangle] (10) 1/0 - 5/5\n")
-            self.assertMultiLineEqual(printed_text3, "[Rectangle] (12) 2/1 - \
-4/6\n[Rectangle] (10) 1/0 - 5/5\n[Rectangle] (89) 4/5 - 2/3\n")
+            printed_text = capture_object.getvalue()
+            self.assertMultiLineEqual(printed_text, \
+"[Rectangle] (12) 2/1 - 4/6\n\
+[Rectangle] (10) 1/0 - 5/5\n\
+[Rectangle] (89) 4/5 - 2/3\n")
         finally:
             sys.stdout = original_stdout
 
@@ -155,11 +149,26 @@ class TestRectangleClass(unittest.TestCase):
             # Correct tests
             r = Rectangle(10, 10, 10, 10)
             print(r)
-            text_printed1 = mock_stdout.getvalue()
-            self.assertEqual(text_printed1, "[Rectangle] (11) 10/10 - 10/10\n")
 
             r.update(y=1, width=2, x=3, id=89)
             print(r)
-            text_printed2 = mock_stdout.getvalue()
-            self.assertEqual(text_printed2, "[Rectangle] (11) 10/10 - 10/10\n\
+
+            text_printed = mock_stdout.getvalue()
+            self.assertEqual(text_printed, \
+"[Rectangle] (12) 10/10 - 10/10\n\
 [Rectangle] (89) 3/1 - 2/10\n")
+
+    def test_to_dictionary(self):
+        """Test case for the `to_dictionary` method"""
+        with patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+            r = Rectangle(10, 2, 1, 9)
+            print(r)
+            r_dictionary = r.to_dictionary()
+            print(r_dictionary)
+            print(type(r_dictionary))
+
+            text_printed = mock_stdout.getvalue()
+            self.assertMultiLineEqual(text_printed, \
+"[Rectangle] (11) 1/9 - 10/2\n\
+{'x': 1, 'y': 9, 'id': 11, 'height': 2, 'width': 10}\n\
+<class 'dict'>\n")
