@@ -72,3 +72,7 @@ self.width)
                     self.x = value
                 elif key == "y":
                     self.y = value
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of instances"""
+        return {'id': self.id, 'x': self.x, 'size': self.width, 'y': self.y}

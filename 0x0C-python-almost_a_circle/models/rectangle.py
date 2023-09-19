@@ -140,3 +140,10 @@ for i in range(self.height)]
                     self.x = value
                 elif key == "y":
                     self.y = value
+
+    def to_dictionary(self):
+        """It returns the dictionary representation of an instance
+        created
+        """
+        return {'x': self.x, 'y': self.y, 'id': self.id, \
+'height': self.height, 'width': self.width}
