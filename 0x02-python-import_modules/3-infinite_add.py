@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from sys import argv
+import my_calculator
 
 if __name__ == "__main__":
     num_of_args = len(argv)
