@@ -1,0 +1,6 @@
+#!../../monty/monty
+
+#int main(void)\#jjjjjj
+#printf("Hello, world\n")
+#return (0);
+}
