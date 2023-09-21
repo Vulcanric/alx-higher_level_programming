@@ -37,7 +37,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Returns the json string representation of list of dictionaries"""
+        """Returns the json string representation of a list of dictionaries"""
         if list_dictionaries is not None and list_dictionaries != []:
             return json.dumps(list_dictionaries)
         else:
@@ -52,26 +52,25 @@ class Base:
         It saves to a file named as: <Class name>.json of instances in list
         overwritting the file, if it already exist
         """
-        l = []
-        if list_objs is None or list_objs == []:
-            # getting the name of the file to save to
-            file_name = l.__class__.__name__
-        else:
+        # First of all getting the name of the file to save to
+        file_name = cls.__name__
+
+        list_of_obj_dict = []
+
+        if list_objs is not None:
             for obj in list_objs:  # for every object in list
                 # If object is a subclass of Base
                 if issubclass(obj.__class__, Base):
                     # Append object dictionary representation to list
-                    l.append(obj.to_dictionary())
-
-                # getting the name of file to save to
-                file_name = obj.__class__.__name__
+                    list_of_obj_dict.append(obj.to_dictionary())
 
         # Append json extension to file name
         file_name += ".json"
 
-        # open file and save json string repr of list-of-object-dictionaries
+        # open file and save json string representation
+        # of list-of-object-dictionaries
         with open(file_name, "w", encoding="utf-8") as file:
-            file.write(cls.to_json_string(l))
+            file.write(cls.to_json_string(list_of_obj_dict))
 
     @staticmethod
     def from_json_string(json_string):
@@ -84,19 +83,20 @@ class Base:
         the Python list object as specified by *json_string*
         """
         return [] if json_string is None or \
-json_string == "" else json.loads(json_string)
+            json_string == "" else json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        """It returns an instance with all it's attributes set
+        """It returns a new instance with all it's attributes set
 
-        :param dictionary: keyworded arguments used to set up attributes
+        :param dictionary: keyworded arguments used to set up instance
+        attributes
         """
         from models.rectangle import Rectangle
         from models.square import Square
 
-        # Used to know what class, instance should be made as
-        option = 'r' # defaults to class Rectangle
+        # Used to know what class, the instance should be made as
+        option = 'r'  # defaults to class Rectangle
 
         # Create and initialise instance with dummy values
         for key, value in dictionary.items():
