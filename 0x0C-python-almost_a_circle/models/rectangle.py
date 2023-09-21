@@ -18,6 +18,12 @@ class Rectangle(Base):
     'Base' class
     """
     def validate_parameters(w=1, h=1, x=0, y=0):
+        """Checks if arguments passed to the Constructor
+        or a private attribute setter method is valid.
+
+        Successful assignment occurs if they are valid, otherwise
+        exceptions are raised
+        """
         if type(w) is not int:
             raise TypeError("width must be an integer")
         if w <= 0:
@@ -107,8 +113,8 @@ class Rectangle(Base):
     def display(self):
         """displays 2D representation of a rectangular object"""
         print("\n" * self.y, end="")
-        [print(' ' * self.x + '#' * self.width) \
-for i in range(self.height)]
+        [print(' ' * self.x + '#' * self.width)
+            for i in range(self.height)]
 
     def update(self, *args, **kwargs):
         """Updates instance private parameters using a variable
@@ -122,7 +128,7 @@ for i in range(self.height)]
             # copy values of arguments passed, into attribute list
             for i in range(len(args)):
                 attributes[i] = args[i]
-            # get updated attribute-values updated
+            # get attribute values updated
             self.id = attributes[0]
             self.width = attributes[1]
             self.height = attributes[2]
@@ -145,5 +151,5 @@ for i in range(self.height)]
         """It returns the dictionary representation of an instance
         created
         """
-        return {'x': self.x, 'y': self.y, 'id': self.id, \
-'height': self.height, 'width': self.width}
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                'height': self.height, 'width': self.width}
