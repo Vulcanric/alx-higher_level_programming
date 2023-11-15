@@ -1,15 +1,15 @@
 #!/usr/bin/node
+/* Program that logs to stdout the first argument that was passed to it */
 
 // ARGV[0] => process.execPath = /usr/bin/node
 // ARGV[1] => path to js file being executed
 // ARGV[1+n] = Any other additional argument passed
 
-/* Import the process object */
-const { argv } = require('node:process');
+let args = process.argv;
+args = args.slice(2, 3); // Cutting out argv[0] and argv[1]
 
-/* When no arguments are passed to the program */
-if (process.argv.length === 2) { console.log('No argument'); } else {
-  argv.forEach((val, index) => {
-    if (index > 1) { console.log(`${val}`); }
-  });
+if (args.toString() === '') {
+  console.log('No argument');
+} else {
+  console.log(`${args[0]}`);
 }
