@@ -4,7 +4,7 @@
 const args = process.argv.map((n) => parseInt(n)); // Convert each string to int
 const numbers = args.filter((v) => !(!v)); // Removes all the NaN's
 
-if (args.length <= 3) { // One or no argument passed
+if (args.length === 2 || numbers.length === 1) { // One or no argument passed
   console.log(0);
 } else {
   numbers.sort();
