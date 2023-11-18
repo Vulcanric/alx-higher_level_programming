@@ -6,7 +6,7 @@ This project was done to get familiar with **Object Relational Mapping** uses th
 | MySQLdb | Allows one to write SQL queries within a Python file to communicate to a database |
 | SQLAlchemy | Allows one to communicates with the database within a Python file, but ***NO MORE QUERIES!*** |
 
-<center><h3>Use case of both Libraries</h3></center>
+### Use case of both Libraries
 Without ORM:
 ```
 conn = MySQLdb.connect(host="localhost", port=3306, user="root", passwd="root", db="my_db", charset="utf8")
