@@ -2,6 +2,7 @@
 This project was done to get familiar with **Object Relational Mapping** uses these libraries:
 
 | **Library used** | **Functionalities** |
+| ---------------- | ------------------- |
 | MySQLdb | Allows one to write SQL queries within a Python file to communicate to a database |
 | SQLAlchemy | Allows one to communicates with the database within a Python file, but ***NO MORE QUERIES!*** |
 
