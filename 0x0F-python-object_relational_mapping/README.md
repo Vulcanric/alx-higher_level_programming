@@ -8,7 +8,7 @@ This project was done to get familiar with **Object Relational Mapping** uses th
 
 <center><h3>Use case of both Libraries</h3></center>
 Without ORM:
-```Python
+```
 conn = MySQLdb.connect(host="localhost", port=3306, user="root", passwd="root", db="my_db", charset="utf8")
 cur = conn.cursor()
 cur.execute("SELECT * FROM states ORDER BY id ASC") # HERE I have to know SQL to grab all states in my database
@@ -19,7 +19,7 @@ cur.close()
 conn.close()
 ```
 With an ORM:
-```Python
+```
 engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format("root", "root", "my_db"), pool_pre_ping=True)
 Base.metadata.create_all(engine)
 
