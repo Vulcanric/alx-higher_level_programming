@@ -11,7 +11,7 @@ if __name__ == "__main__":
     username = argv[1]
     password = argv[2]
     database = argv[3]
-    state = argv[4]
+    statename = argv[4]
 
     db = MySQLdb.connect(
             host='localhost', port=3306, user=username, passwd=password,
@@ -20,8 +20,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
     cursor.execute(
-            "SELECT * FROM states WHERE name = '{}' \
-            ORDER BY id ASC".format(state)
+            "SELECT * FROM states WHERE BINARY name = '{}' \
+            ORDER BY id ASC".format(statename)
             )
 
     results = cursor.fetchall()
