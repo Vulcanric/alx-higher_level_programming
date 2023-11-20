@@ -21,3 +21,4 @@ class State(Base):
 
     id = Column('id', Integer, primary_key=True, unique=True, nullable=False)
     name = Column('name', String(128), nullable=False)
+
