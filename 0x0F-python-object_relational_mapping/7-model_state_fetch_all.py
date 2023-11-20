@@ -8,13 +8,13 @@ from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-# from urllib.parse import quote  # Used to encode special character
+from urllib.parse import quote  # Used to encode special character
 
 if __name__ == "__main__":
     # Get MySQL database info
 
     username = sys.argv[1]
-    password = sys.argv[2]
+    password = quote(sys.argv[2])
     databasename = sys.argv[3]
 
     # Create connection engine
@@ -27,8 +27,10 @@ if __name__ == "__main__":
     Session = sessionmaker()
     session = Session(bind=engine)
 
-    states = session.query(State).order_by(State.id).all()
+    states = session.query(State).order_by(State.id.asc()).all()
 
     # Prints all states id along with their names
     for state in states:
         print(f'{state.id}: {state.name}')
+
+    session.close()
