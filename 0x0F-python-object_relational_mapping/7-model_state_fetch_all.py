@@ -10,6 +10,7 @@ from sqlalchemy.orm import sessionmaker
 
 from urllib.parse import quote  # Used to encode special character
 
+
 if __name__ == "__main__":
     # Get MySQL database info
 
@@ -19,7 +20,7 @@ if __name__ == "__main__":
 
     # Create connection engine
     engine = create_engine(
-            f'mysql+mysqldb://{username}:{password}@localhost/{databasename}',
+            f'mysql+mysqldb://{username}:{password}@localhost:3306/{databasename}',
             pool_pre_ping=True, echo=True
             )
 
