@@ -14,7 +14,7 @@ from urllib.parse import quote  # Encodes special characaters
 
 if __name__ == "__main__":
     # Get the information of the database to use
-    
+
     username = sys.argv[1]
     password = quote(sys.argv[2])
     database = sys.argv[3]
