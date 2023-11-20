@@ -16,12 +16,12 @@ if __name__ == "__main__":
 
     username = sys.argv[1]
     password = quote(sys.argv[2])
-    databasename = sys.argv[3]
+    database = sys.argv[3]
 
     # Create connection engine
     engine = create_engine(
-            f'mysql+mysqldb://{username}:{password}@localhost:3306/{databasename}',
-            pool_pre_ping=True, echo=True
+            f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}',
+            pool_pre_ping=True
             )
 
     # Create a session inorder to query the database
