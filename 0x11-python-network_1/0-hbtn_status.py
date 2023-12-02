@@ -7,11 +7,11 @@ import urllib
 
 if __name__ == "__main__":
 
-    request = __import__('urllib.request').request
+    req = __import__('urllib.request').request
 
     url = 'https://alx-intranet.hbtn.io/status'
 
-    with request.urlopen(url) as resp:
+    with req.urlopen(url) as resp:
         body = resp.read()                  # Body content
         print('Body response:')
         print(f"\t- type: {body.__class__}")    # type(body)
