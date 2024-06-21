@@ -2,15 +2,13 @@
 """ This module uses the `urllib` Python library to retrieve a resource
 from a URL
 """
-import urllib
+import urllib.request
 
 if __name__ == "__main__":
 
-    request = __import__('urllib.request').request
-
     url = 'https://alx-intranet.hbtn.io/status'
 
-    with request.urlopen(url) as response:
+    with urllib.request.urlopen(url) as response:
         body = response.read()
         print('Body response:')
         print('\t- type:', type(body))
