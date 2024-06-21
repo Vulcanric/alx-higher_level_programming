@@ -14,5 +14,5 @@ if __name__ == "__main__":
         body = response.read()
         print('Body response:')
         print('\t- type:', type(body))
-        print('\t- content:', body)                 # body is type 'byte' by default
-        print('\t- utf8 content:', body.decode())   # Default encoding is utf-8
+        print('\t- content:', body)         # body is type 'byte' by default
+        print('\t- utf8 content:', body.decode())  # Default encoding is utf-8
