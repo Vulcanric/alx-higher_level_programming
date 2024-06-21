@@ -2,8 +2,8 @@
 """ This module uses the `urllib` library to retrieve a responce header
     from a URL
 """
-import sys
 import urllib
+import sys
 
 
 if __name__ == "__main__":
