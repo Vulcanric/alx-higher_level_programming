@@ -21,7 +21,6 @@ if __name__ == "__main__":
 
     response = requests.get(url, headers=header)
     commits = response.json()  # Returns a list object - a list of all commits
-    print(commits[0])
 
     for i in range(10):
         print(commits[i].get('sha'), end=': ')
