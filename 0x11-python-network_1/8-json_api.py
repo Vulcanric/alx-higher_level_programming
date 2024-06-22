@@ -15,8 +15,12 @@ if __name__ == "__main__":
 
     url = 'http://0.0.0.0:5000/search_user'
 
-    search_key = sys.argv[1]
-    param = {'q': search_key}
+    if len(sys.argv) != 2:
+        query = ""
+    else:
+        query = sys.argv[1]
+
+    param = {'q': query}
 
     response = requests.post(url, data=param)
 
