@@ -34,10 +34,9 @@ if __name__ == "__main__":
         # If the JSON string is empty -> '{}'
         if dict_repr == {}:
             print('No result')
-            exit(0)
+        else:
+            # If it has content
+            print('[{}] {}'.format(dict_repr.get('id'), dict_repr.get('name')))
 
-        # If it has content
-        print('[{}] {}'.format(dict_repr.get('id'), dict_repr.get('name')))
-
-    except requests.exceptions.JSONDecodeError as e:  # Not a valid JSON
+    except Exception as e:  # Not a valid JSON
         print('Not a valid JSON')
