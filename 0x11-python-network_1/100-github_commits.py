@@ -22,6 +22,8 @@ if __name__ == "__main__":
     response = requests.get(url, headers=header)
     commits = response.json()  # Returns a list object - a list of all commits
 
-    for i in range(10):
+    commit_count = min(len(commits), 10)  # Get 10 latest commits or less
+
+    for i in range(commit_count):
         print(commits[i].get('sha'), end=': ')
         print(commits[i].get('commit').get('author').get('name'))
